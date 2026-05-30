@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FlixBooker — Book Movie Tickets</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🍿 FlixBooker</div>
+    <ul class="nav-links">
+      <li><a href="#" id="homeLink">Home</a></li>
+      <li><a href="#moviesGrid">Movies</a></li>
+      <li><a href="#bookingsSection">My Bookings</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Choose your seats. Book with ease.</h1>
+      <p>Experience a seamless way to reserve your favorite movie spots — only on FlixBooker.</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="searchSection" class="search-section">
+  <h2>Search Movies</h2>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for any movie..." />
+    <button id="searchBtn" class="btn primary">Search</button>
+  </div>
+  <div id="searchResult" class="search-result"></div>
+</section>
+
+    <section id="moviesGrid" class="movies-section">
+      <h2>Now Showing</h2>
+      <div id="moviesContainer" class="movies-grid"></div>
+    </section>
+
+    <section id="bookingsSection" class="bookings-section">
+      <h2>Your Bookings</h2>
+      <div id="bookingsList">
+        <p class="muted">No bookings yet — pick a movie and reserve your seats!</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="modal-close" id="bookingClose">&times;</button>
+      <h3>Confirm Booking</h3>
+      <form id="bookingForm">
+  <h2>Book Your Seats</h2>
+  <label for="movieName">Movie</label>
+  <input type="text" id="movieName" readonly>
+
+  <label for="date">Select Date</label>
+  <input type="date" id="date" required>
+
+  <label>Choose Seats</label>
+  <div class="seat-map" id="seatMap"></div>
+  <p>Selected Seats: <span id="seatCount">0</span></p>
+
+  <button type="submit" class="btn primary">Confirm Booking</button>
+  <button type="button" id="bookingCancel" class="btn secondary">Cancel</button>
+</form>
+
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>

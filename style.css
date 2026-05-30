@@ -1,0 +1,157 @@
+:root{
+  --bg:#070708;
+  --card:#0f0f12;
+  --accent:#00d68f;
+  --muted:#9aa0a6;
+}
+
+body{
+  margin:0;
+  font-family:"Poppins",system-ui;
+  background:linear-gradient(180deg,#070708 0%, #0b0b0d 100%);
+  color:#fff;
+}
+.navbar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 28px;background:rgba(255,255,255,0.03);
+  backdrop-filter:blur(6px);position:sticky;top:0;z-index:20;
+}
+.logo{font-weight:700;color:var(--accent);}
+.nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0}
+.nav-links a{color:#fff;text-decoration:none;}
+.nav-links a:hover{color:var(--accent)}
+.hero{text-align:center;padding:40px 20px;}
+.movies-section{padding:20px;}
+.movies-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;max-width:1100px;margin:0 auto;
+}
+.movie-card{
+  background:rgba(255,255,255,0.03);padding:10px;border-radius:10px;
+  box-shadow:0 8px 16px rgba(0,0,0,0.5);
+  transition:.2s;
+}
+.movie-card:hover{transform:translateY(-4px);}
+.movie-poster{width:100%;height:320px;object-fit:cover;border-radius:8px;}
+.btn{border:none;padding:10px 12px;border-radius:8px;font-weight:700;cursor:pointer}
+.btn.primary{background:var(--accent);color:#022;}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.2);color:#fff;}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;z-index:30;}
+.modal[aria-hidden="false"]{display:flex;}
+.modal-panel{background:var(--card);padding:20px;border-radius:12px;max-width:420px;width:100%;position:relative;}
+.modal-close{position:absolute;right:12px;top:10px;background:none;border:0;color:#fff;font-size:22px;cursor:pointer;}
+label{display:block;margin-top:10px;color:var(--muted);}
+input{width:100%;padding:8px;margin-top:6px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.1);color:#fff;}
+.modal-actions{display:flex;gap:10px;margin-top:16px;}
+
+/* Seat map */
+.seat-map{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-top:10px;}
+.seat{
+  width:28px;height:28px;border-radius:4px;
+  background:rgba(255,255,255,0.1);
+  cursor:pointer;transition:.2s;
+}
+.seat:hover{background:rgba(255,255,255,0.3);}
+.seat.selected{background:var(--accent);}
+.seat.taken{background:rgba(255,0,0,0.6);cursor:not-allowed;}
+.seat-info{text-align:right;color:var(--muted);margin-top:6px;font-size:.9rem;}
+
+/* Toast */
+.toast{
+  position:fixed;right:24px;bottom:24px;
+  background:var(--accent);color:#022;
+  padding:12px 18px;border-radius:10px;
+  font-weight:700;opacity:0;transform:translateY(20px);
+  transition:all .4s ease;z-index:50;
+}
+.toast.show{opacity:1;transform:none;box-shadow:0 0 15px var(--accent);}
+
+/* Confetti */
+#confetti{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:100;}
+.search-section{
+  text-align:center;
+  padding:30px 15px;
+  background:rgba(255,255,255,0.03);
+  border-radius:10px;
+  margin:20px auto;
+  max-width:800px;
+}
+.search-bar{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:20px;
+}
+.search-bar input{
+  width:60%;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+  background:rgba(255,255,255,0.1);
+  color:#fff;
+}
+.search-result{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;
+}
+.search-card{
+  background:rgba(255,255,255,0.05);
+  padding:15px;
+  border-radius:10px;
+  max-width:300px;
+  text-align:left;
+  box-shadow:0 6px 10px rgba(0,0,0,0.4);
+}
+.search-card img{
+  width:100%;
+  border-radius:8px;
+  margin-bottom:10px;
+}
+.bookings-section {
+  padding: 30px 20px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 10px;
+  max-width: 900px;
+  margin: 30px auto;
+}
+.booking-card {
+  background: rgba(255,255,255,0.05);
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  line-height: 1.5;
+}
+.booking-card h4 {
+  margin: 0 0 6px 0;
+  color: var(--accent);
+}
+.booking-card small {
+  color: var(--muted);
+}
+.booking-card {
+  position: relative;
+  transition: transform 0.2s ease;
+}
+.booking-card:hover {
+  transform: translateY(-3px);
+}
+.cancel-btn {
+  background: rgba(255, 60, 60, 0.9);
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  transition: background 0.2s ease;
+}
+.cancel-btn:hover {
+  background: rgba(255, 100, 100, 1);
+}
